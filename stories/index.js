@@ -5,7 +5,8 @@ import DayList from "components/DayList";
 import InterviewerListItem from "components/InterviewerListItem";
 import InterviewerList from "components/InterviewerList";
 import Appointment from "components/Appointment/index.js";
-import Header from "components/Appointment/Header"
+import Header from "components/Appointment/Header";
+import Empty from "components/Appointment/Empty";
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 
@@ -141,3 +142,4 @@ storiesOf("Appointment", module)
   .add("Appointment", () => <Appointment />)
   .add("Appointment with Time", () => <Appointment time='12pm' />)
   .add("Header", () => <Header time='12pm' />)
+  .add("Empty", () => <Empty onAdd={action('onAdd')} />)
