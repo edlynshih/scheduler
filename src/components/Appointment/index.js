@@ -16,12 +16,25 @@ export default function Appointment(props) {
     props.interview ? SHOW : EMPTY
   );
 
+  function save(name, interviewer) {
+    console.log('Arg name', name)
+    console.log('Arg interviewer', interviewer)
+    const interview = {
+      student: name,
+      interviewer
+    };
+    
+    Promise.resolve(props.bookInterview(props.id, interview))
+      .then(() => transition(SHOW))
+  }
+
   return (
     <article className="appointment">
       <Header time={props.time} />
       {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
       {mode === SHOW && (
         <Show
+          id={props.id}
           student={props.interview.student}
           interviewer={props.interview.interviewer}
         />
@@ -30,6 +43,7 @@ export default function Appointment(props) {
         <Form 
           interviewers={props.interviewers} 
           onCancel={back}
+          onSave={save}
         />
       )}
     </article>

@@ -10,8 +10,28 @@ export default function Application(props) {
   const [state, setState] = useState({
     day: "Monday",
     days: [],
-    appointments: {}
+    appointments: {
+    }
   });
+
+  function bookInterview(id, interview) {
+
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview }
+    };
+    console.log('this is appointment', appointment);
+    
+    //update the appointments object with the appointment obj above
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    };
+    console.log('this is appointments after', appointments);
+
+    setState({...state, appointments});
+    console.log('this is appointments after setstate', appointments);
+  }
 
   const appointments = getAppointmentsForDay(state, state.day);
   const interviewers = getInterviewersForDay(state, state.day);
@@ -40,6 +60,7 @@ export default function Application(props) {
         time={appointment.time}
         interview={interview}
         interviewers={interviewers}
+        bookInterview={bookInterview}
       />
     );
   });
@@ -68,6 +89,7 @@ export default function Application(props) {
       </section>
       <section className="schedule">
         {schedule}
+        <Appointment key="last" time="5pm" />
       </section>
     </main>
   );
