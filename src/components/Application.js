@@ -14,6 +14,7 @@ export default function Application(props) {
     }
   });
 
+  //Add new interview obj in appointments and make a PUT req to update backend API
   function bookInterview(id, interview) {
 
     const appointment = {
@@ -27,15 +28,14 @@ export default function Application(props) {
       [id]: appointment
     };
 
-    setState({ ...state, appointments });
-
-    axios.put(`/api/appointments/${id}`, { interview })
-      .then(() => {setState({...state, appointments})})
+    return axios.put(`/api/appointments/${id}`, { interview })
+      .then(() => { setState({ ...state, appointments }) })
 
   }
 
+  //Remove the interview obj from the appointments and make a DELETE req to backend API
   function cancelInterview(id) {
-    
+
     const appointment = {
       ...state.appointments[id],
       interview: null
@@ -46,10 +46,9 @@ export default function Application(props) {
       [id]: appointment
     };
 
-    setState({ ...state, appointments});
+    return axios.delete(`/api/appointments/${id}`)
+      .then(() => { setState({ ...state, appointments }) })
 
-    axios.delete(`/api/appointments/${id}`)
-    .then(() => {setState({...state, appointments})})
   }
 
   const appointments = getAppointmentsForDay(state, state.day);
@@ -58,7 +57,7 @@ export default function Application(props) {
   //update day of the state
   const setDay = day => setState({ ...state, day });
 
-  //using axios to get days api
+  //using axios to get all api
   useEffect(() => {
     Promise.all([
       axios.get("/api/days"),
