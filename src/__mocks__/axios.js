@@ -54,6 +54,8 @@ const fixtures = {
 };
 
 export default {
+
+  //mock axios get reqs
   get: jest.fn(url => {
     if (url === "/api/days") {
       return Promise.resolve({
@@ -78,5 +80,13 @@ export default {
         data: fixtures.interviewers
       });
     }
+  }),
+
+  //mock axios put reqs
+  put: jest.fn(() => {
+    return Promise.resolve({
+      status: 204,
+      statusText: "No Content",
+    });
   })
 }
