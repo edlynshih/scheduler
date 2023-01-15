@@ -27,7 +27,7 @@ export default function Appointment(props) {
   );
 
   //Save the student's name and interviewer obj and handles transition btn modes
-  function save(name, interviewer) {
+  function save(name, interviewer, edit = false) {
     const interview = {
       student: name,
       interviewer
@@ -36,7 +36,7 @@ export default function Appointment(props) {
     transition(SAVING);
 
     props
-      .bookInterview(props.id, interview)
+      .bookInterview(props.id, interview, edit)
       .then(() => transition(SHOW))
       .catch(error => transition(ERROR_SAVE, true));
   };

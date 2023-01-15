@@ -30,7 +30,7 @@ export default function useApplicationData(intial) {
     //make a copy of days array so we are not making changes directly to the state
     const days = state.days;
     let dayIndex= -1;
-
+    
     //find the index of day and return the individual day object
     const dayToUpdate = days.find((item, index) => {
       if (item.name === day) {
@@ -38,20 +38,19 @@ export default function useApplicationData(intial) {
         return item;
       }
     })
-
+    
     if (increment) {
       dayToUpdate.spots++
     } else {
       dayToUpdate.spots--
     }
-    //replace the existing day object with the new day obj (dayToUpdate)
-    days.splice(dayIndex, 1, dayToUpdate);
-    //returns an array of days
+
+    //returns days array
     return days;
   }
 
   //Add new interview obj in appointments and make a PUT req to update the local state
-  const bookInterview = (id, interview) => {
+  const bookInterview = (id, interview, edit = false) => {
 
     const appointment = {
       ...state.appointments[id],
@@ -65,7 +64,7 @@ export default function useApplicationData(intial) {
     };
 
     return axios.put(`/api/appointments/${id}`, { interview })
-      .then(() => { setState({ ...state, appointments, days: updateSpots(state.day, false) }) })
+      .then(() => { setState({ ...state, appointments, days: edit? state.days: updateSpots(state.day, false) }) })
   };
 
   //Remove the interview obj from the appointments and make a DELETE req to update local state

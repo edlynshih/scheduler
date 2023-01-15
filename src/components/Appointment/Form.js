@@ -31,7 +31,7 @@ export default function Form(props) {
       return;
     }
     setError("");
-    props.onSave(student, interviewer);
+    props.onSave(student, interviewer, props.student !== undefined);
   }
 
   return (

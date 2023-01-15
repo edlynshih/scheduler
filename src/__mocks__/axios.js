@@ -61,7 +61,8 @@ export default {
       return Promise.resolve({
         status: 200,
         statusText: "OK",
-        data: fixtures.days
+        //creates a deep copy
+        data: JSON.parse(JSON.stringify(fixtures.days))
       });
     }
 
@@ -69,7 +70,7 @@ export default {
       return Promise.resolve({
         status: 200,
         statusText: "OK",
-        data: fixtures.appointments
+        data: JSON.parse(JSON.stringify(fixtures.appointments))
       });
     }
 
@@ -77,7 +78,7 @@ export default {
       return Promise.resolve({
         status: 200,
         statusText: "OK",
-        data: fixtures.interviewers
+        data: JSON.parse(JSON.stringify(fixtures.interviewers))
       });
     }
   }),
@@ -87,6 +88,13 @@ export default {
     return Promise.resolve({
       status: 204,
       statusText: "No Content",
+    });
+  }),
+
+  delete: jest.fn(() => {
+    return Promise.resolve({
+      status: 200,
+      statusText: "OK",
     });
   })
 }
