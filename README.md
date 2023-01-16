@@ -8,7 +8,7 @@ Built with React on the front-end.
 View of the entire schedule for the selected day
 !["appointment-show"](https://github.com/edlynshih/scheduler/blob/master/docs/appointment-show.png)
 
-The form displayed when creating/editing an interview
+The form displayed when creating or editing an interview
 !["appointment-form"](https://github.com/edlynshih/scheduler/blob/master/docs/appointment-form.png)
 
 Confirmation message before deleting an interview
