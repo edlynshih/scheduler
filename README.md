@@ -5,7 +5,9 @@ Interview Scheduler is a single-page application that allows users to book inter
 Built with React on the front-end.
 
 ## Final Product
-
+!["appointment-show"](https://github.com/edlynshih/scheduler/blob/master/docs/appointment-show.png)
+!["appointment-form"](https://github.com/edlynshih/scheduler/blob/master/docs/appointment-form.png)
+!["appointment-confirm"](https://github.com/edlynshih/scheduler/blob/master/docs/appointment-confirm.png)
 
 ## Getting Started
 1. Fork this repository, then clone your fork of this repository.
