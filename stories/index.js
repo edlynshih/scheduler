@@ -14,7 +14,6 @@ import Error from "components/Appointment/Error";
 import Form from "components/Appointment/Form";
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
-
 import "index.scss";
 
 

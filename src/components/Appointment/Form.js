@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import InterviewerList from "components/InterviewerList";
 import Button from "components/Button";
 
@@ -31,6 +32,7 @@ export default function Form(props) {
       return;
     }
     setError("");
+    //will call update spots function if props.student !== undefined renders false, meaning there is no existing student profile
     props.onSave(student, interviewer, props.student !== undefined);
   }
 

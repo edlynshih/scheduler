@@ -1,6 +1,3 @@
-import DayListItem from "components/DayListItem";
-import createStatsCollector from "mocha/lib/stats-collector";
-
 // use the state to return the appointmnets for a selected day
 export function getAppointmentsForDay(state, day) {
   const result = [];

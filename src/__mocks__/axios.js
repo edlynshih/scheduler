@@ -83,7 +83,7 @@ export default {
     }
   }),
 
-  //mock axios put reqs
+  //mock axios put req
   put: jest.fn(() => {
     return Promise.resolve({
       status: 204,
@@ -91,6 +91,7 @@ export default {
     });
   }),
 
+  //mock axios delete req
   delete: jest.fn(() => {
     return Promise.resolve({
       status: 200,

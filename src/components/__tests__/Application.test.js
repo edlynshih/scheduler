@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { render, cleanup, waitForElement, fireEvent, prettyDOM, getAllByTestId, getByAltText, getByPlaceholderText, getByText, queryByTestId, queryByText, queryByAltText, waitForElementToBeRemoved } from "@testing-library/react";
+import { render, cleanup, waitForElement, fireEvent, prettyDOM, getAllByTestId, getByAltText, getByPlaceholderText, getByText, queryByText, queryByAltText, waitForElementToBeRemoved } from "@testing-library/react";
 
 import Application from "components/Application";
 
@@ -9,7 +9,7 @@ afterEach(cleanup);
 describe("Application", () => {
   it("defaults to Monday and changes the schedule when a new day is selected", async () => {
     const { getByText } = render(<Application />);
-
+    //wait for the page to render
     await waitForElement(() => getByText("Monday"));
 
     fireEvent.click(getByText("Tuesday"));
@@ -125,7 +125,7 @@ describe("Application", () => {
     fireEvent.click(getByText(appointment, "Save"));
 
     expect(getByText(appointment, "Saving")).toBeInTheDocument();
-    //Wait until the saving is removed.
+    //Wait until the saving is removed
     await waitForElementToBeRemoved(() => getByText(appointment, "Saving"));
 
     expect(getByText(appointment, "Could not save appointment")).toBeInTheDocument();

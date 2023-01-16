@@ -49,7 +49,7 @@ export default function useApplicationData(intial) {
     return days;
   }
 
-  //Add new interview obj in appointments and make a PUT req to update the local state
+  //Add new interview obj in appointments and make a PUT req to update the local state, edit parameter will determine whether or not to update spots
   const bookInterview = (id, interview, edit = false) => {
 
     const appointment = {
