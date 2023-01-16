@@ -4,9 +4,8 @@ Interview Scheduler is a single-page application that allows users to book inter
 
 Built with React on the front-end.
 
-## Setup
+## Final Product
 
-Install dependencies with `npm install`.
 
 ## Getting Started
 1. Fork this repository, then clone your fork of this repository.
